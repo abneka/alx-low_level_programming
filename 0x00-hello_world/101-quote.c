@@ -1,7 +1,7 @@
 #include <unistd.h>
 
 /**
- * main - Prints and that piece of art is usefull
+ * main - 
  *
  * Return: Always 1.
  */
