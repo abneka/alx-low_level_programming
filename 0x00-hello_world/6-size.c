@@ -1,11 +1,11 @@
 #include <stdio.h>
 
 /**
- *  * main - Prints size of various data types
- *   * based on the computer
- *    *
- *     * Return: Always 0.
- *      */
+ * main - Prints size of various data types
+ * based on the computer
+ *
+ * Return: Always 0.
+ */
 int main(void)
 {
 		printf("Size of a char: %zu byte(s)\n", sizeof(char));
