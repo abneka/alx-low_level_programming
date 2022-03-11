@@ -8,13 +8,17 @@
 
 int main(void)
 {
-	int nums;
+		int d;
 
-	for (nums = '0'; nums <= '8'; nums++)
-	{
-		putchar(nums);
-		putchar(',');
-	}
-	putchar('9');
-	putchar('\n');
+		for (d = '0'; d <= '9'; d++)
+		{
+			putchar(d);
+			if (d != '9')
+			{
+				putchar(',');
+				putchar(' ');
+			}
+		}
+		putchar('\n');
+		return (0);
 }
