@@ -25,7 +25,7 @@ void print_times_table(int n)
  *  * putformat - formatted characters to output
  *   * @n: number to format
  *    * Return: nothing
- *     */
+ */
 void putformat(int n)
 {
 		if (n <= 9)
