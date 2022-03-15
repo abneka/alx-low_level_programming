@@ -1,4 +1,6 @@
+#include <unistd.h>
 #include <stdlib.h>
+#include "main.h"
 
 /**
  * main - task no 01
