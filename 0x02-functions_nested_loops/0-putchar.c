@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include "main.h"
 
 /**
  * main - task no 01
@@ -8,6 +9,12 @@
 
 int main(void)
 {
-	printf("%s\n","_putchar");
-	return (0);
+		char word[9] = "_putchar";
+		int i;
+
+		for (i = 0; i < 9; i++)
+			_putchar(word[i]);
+		_putchar('\n');
+
+		return (0);
 }
