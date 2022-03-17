@@ -1,36 +1,44 @@
 #include "main.h"
 /**
- *  * print_number - prints a number
- *   * @n: Input number
+ *  * print_number - prints an integer
+ *   * @na: integer to print
+ *    * Return: nothing
  */
-
-void print_number(int n)
+void print_number(int na)
 {
-		long len, res, i, temp, expo;
+		unsigned int pc, i, z, nmodul, n;
 
-		res = n;
-		expo = len =  1;
-		/*Check negatives*/
-		if (res < 0)
+		if (na == 0)
+			_putchar('0');
+		/* if n is negative we make it positive*/
+		if (na < 0)
 		{
-			res *= -1;
+			n = -na;
 			_putchar('-');
 		}
-		/**/
-		temp = res;
-		while (temp >= 10)
+		else
+			n = na;
+		if (n < 10 && n > 0)
+			_putchar(n + '0');
+		while (n >= 10)
 		{
-			len++;
-			temp /= 10;
+			pc = n;
+			z = 0;
+			nmodul = 0;
+			for (i = 0; pc >= 10; i++)
+			{
+				if (pc / 10 > 0 && pc % 10 == 0)
+					z++;
+				else
+					z = 0;
+				pc /= 10;
+				nmodul =  (nmodul) ? nmodul * 10 : 10;
+			}
+			_putchar(pc + '0');
+			while (z-- > 0)
+				_putchar('0');
+			n %= nmodul;
+			if (n > 0 && n < 10)
+				_putchar(n + '0');
 		}
-		/*Create Exponent*/
-		for (i = 1; i < len; i++)
-			expo *= 10;
-		/*Main */
-		while (expo > 1)
-		{
-			_putchar((res / expo) % 10 + '0');
-			expo /= 10;
-		}
-		_putchar(res % 10 + '0');
 }
