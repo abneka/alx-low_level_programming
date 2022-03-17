@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * isupper - checks for uppercase.
  * c: character to check.
