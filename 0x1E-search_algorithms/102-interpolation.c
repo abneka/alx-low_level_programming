@@ -1,46 +1,47 @@
+/*
+ * File: 102-interpolation.c
+ * Auth: Brennan D Baraban
+ */
+
 #include "search_algos.h"
 
 /**
- * interpolation_search - searches for @value in sorted array @array using
- * the interpolation algorithm
- * @array: pointer to the first element of the array to search in
- * @size: the number of elements in the array
- * @value: the value to search for in @array
- *
- * Return: The first index where value is located, -1 otherwise
- */
+  * interpolation_search - Searches for a value in a sorted array
+  *                        of integers using interpolation search.
+  * @array: A pointer to the first element of the array to search.
+  * @size: The number of elements in the array.
+  * @value: The value to search for.
+  *
+  * Return: If the value is not present or the array is NULL, -1.
+  *         Otherwise, the first index where the value is located.
+  *
+  * Description: Prints a value every time it is compared in the array..
+  */
 int interpolation_search(int *array, size_t size, int value)
 {
-	size_t lo = 0, hi = (int) size - 1;
-	size_t pos;
+	size_t i, l, r;
 
-	if (!array)
+	if (array == NULL)
 		return (-1);
 
-	pos = (size_t) lo + (size_t) (((double)(hi - lo) /
-		(array[hi] - array[lo])) * (value - array[lo]));
-
-	while ((int) (hi - lo) > -1)
+	for (l = 0, r = size - 1; r >= l;)
 	{
-		if (pos > size)
+		i = l + (((double)(r - l) / (array[r] - array[l])) * (value - array[l]));
+		if (i < size)
+			printf("Value checked array[%ld] = [%d]\n", i, array[i]);
+		else
 		{
-			printf("Value checked array[%ld] is out of range\n", pos);
+			printf("Value checked array[%ld] is out of range\n", i);
 			break;
 		}
-		printf("Value checked array[%ld] = [%d]\n", pos, array[(int) pos]);
-		if (array[pos] == value)
-			return ((int) pos);
 
-		if (value < array[pos])
-			hi = pos - 1;
-		else if (value > array[pos])
-			lo = pos + 1;
+		if (array[i] == value)
+			return (i);
+		if (array[i] > value)
+			r = i - 1;
 		else
-			lo = pos;
-		pos = (size_t) lo + (size_t) (((double)(hi - lo) / (array[hi] - array[lo])) *
-						   (value - array[lo]));
+			l = i + 1;
 	}
 
 	return (-1);
-
 }
